@@ -1,0 +1,263 @@
+---
+title: 'Stats 250: MWrite 1 Supplement'
+author: "Instructional Team"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Instructions
+
+Instead of a lab assignment this week, you will be completing your analysis for the first MWrite assignment. Each of the 10 questions will be graded out of 5 points (for a total of 50 points). These questions will be graded for *correctness*. We strongly encourage you to work on this assignment with a partner, but each student must submit their own lab assignment. Additionally, please note that there is no submission for Lab 4. The only document that you will submit today is the *mwrite1_supplement.html* file - and this will be submitted to the corresponding assignment on Canvas. 
+
+**Reminder:** Please be sure all plot titles and labels have been appropriately updated. Point deductions will be applied for each plot with missing or inappropriate labels. On this note, your plots should **not** use the subtitle: "by Stats 250 Instructional Team". 
+
+
+***
+
+
+### Background
+
+Why are diamonds so much more expensive than other precious gems (such as emeralds, for instance, which are estimated to be about 20 times rarer in nature than diamonds)?
+
+Gemologists argue that there are at least four attributes that influence the price of a diamond when it is sold for use in jewelry. These attributes are often referred to as “the Four C’s.”
+
+1. The **Cut**: Cut is the proportion and arrangement of facets that determine a diamond’s brilliance, sparkle, and fire when it catches, refracts, and reflects light. A trained jeweler will rate a diamond’s cut from Fair (worst) to Ideal (best).
+
+2. The **Carat**: Carat is a measurement unit that describes a diamond’s weight, not its size. One carat is approximately equal to the weight of one paperclip. The largest diamond in the world is the Cullinan Diamond, which was measured at 3,106 carats! We have grouped the diamond weights into categories labeled Small, Medium, and Large. 
+
+3. The **Clarity**: Clarity references the absence of internal inclusions and surface blemished on a diamond. The scale ranges from Internally Flawless (FL) to Included (SI2). We have grouped the original clarity classifications into three categories labeled Cloudy (worst), Moderate, and Pure (best). 
+
+4. The **Color**: Color refers to the absence of color within a diamond. A trained jeweler will classify a diamond on a range from D (colorless or white) to Z. Diamonds outside this range are considered ‘fancy colored.’ diamonds occur in the natural rainbow spectrum of colors—red, orange, yellow, green, blue, pink, purple, and more. These are known as colored diamonds. Only 1 in every 10,000 diamonds possess natural color, and the more intense the color, the rarer and more valuable the diamond. Fancy-colored diamonds can be even more valuable than white diamonds. We will not be utilizing this variable in our analysis.
+
+
+The `diamonds` data set contains information on almost 50,000 round diamonds from the Loose Diamonds Search Engine, an international, online platform dedicated to the buying and selling of diamonds. The variables include:
+
+1. `price`: price (in US dollars)
+2. `cut`: quality of the cut (Fair, Good, Very Good, Premium, Ideal)
+3. `carat`: weight of the diamond (Small, Medium, Large)
+4. `clarity`: a measurement of how clear the diamond is (Cloudy, Moderate, Pure)
+5. `color`: diamond color, from D (best) to J (worst)
+
+**Goal:** use these data to *identify the factors that most significantly influence a diamond's selling price.*
+
+Use the following code chunk to read in the data set. 
+
+```{r read_data}
+load("diamonds.rda")
+```
+
+As always, be sure to load in any required packages!
+
+```{r load_package}
+library(ggplot2)
+```
+
+
+***
+
+
+### Exercises
+
+After reading in the data set above, complete the following lab exercise. Remember, these exercises are worth 5 points each and are graded for correctness.
+
+> **1.** Run the code chunk below to preview the data set. Using this output and the variable descriptions from the background above, identify the variable type (categorical or quantitative) for each of the variables. Then, describe the observational unit (i.e., what each row of data represents). Finally, identify which variable is acting as the response variable. 
+
+```{r exercise1}
+head(diamonds)
+```
+
+*Variable Types:* After each variable name, type categorical or quantitative
+
+1. `price`: 
+2. `cut`: 
+3. `carat`: 
+4. `clarity`: 
+5. `color`: 
+
+*Observational Unit:* Replace this text with the observational unit of the data set
+
+*Response Variable:* Replace this text with the name of the response variable
+
+
+
+> **2.** In the first code chunk, create a histogram that visualizes the distribution of diamond prices. Be sure to appropriately update the plot title and axis labels. In the second code chunk, calculate at least two useful numerical summaries that would help provide a thorough description of the variable's distribution. Then, thoroughly describe the distribution. Your response should be 2 - 3 sentences in length and describe the shape, center, and spread of the distribution. 
+
+```{r exercise2_histogram}
+# Replace this comment with your code
+
+```
+
+```{r exercise2_numerical_summaries}
+# Replace this comment with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **3.** One of your colleagues believes *cut* to have the most significant influence on price. First, create a set of side-by-side boxplots to analyze this belief. Be sure to appropriately update the plot title and axis labels. Then, use the `aggregate()` function to compute the *median* price by cut. Using your results, write a 1 - 2 sentence description of the observed association.
+
+```{r exercise3_boxplot}
+# Replace this comment with your code
+
+```
+
+```{r exercise3_medians}
+# Replace this comment with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **4.** Another colleague believes *clarity* to have the most significant influence on price. First, create a set of side-by-side boxplots to analyze this belief. Be sure to appropriately update the plot title and axis labels. Then, use the `aggregate()` function to compute the *median* price by clarity level. Using your results, write a 1 - 2 sentence description of the observed association.
+
+```{r exercise4_boxplot}
+# Replace this comment with your code
+
+```
+
+```{r exercise4_medians}
+# Replace this comment with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **5.** Both of the above results surprise your colleagues. After speaking with the head jeweler, they hypothesize that the weight of the diamond must be influencing (or confounding) both sets of results. Create a *percent stacked bar chart* that explores the association between `cut` and `carat`. You must use `position = "fill"` in your `geom_bar()` code. Be sure to appropriately update the plot title and axis labels. Provide a 1 - 2 sentence description of the observed association.
+
+```{r exercise5, error = T}
+# Replace this text with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **6.** Create a *percent stacked bar chart* that explores the association between `clarity` and `carat`. You must use `position = "fill"` in your `geom_bar()` code. Be sure to appropriately update the plot title and axis labels. Provide a 1 - 2 sentence description of the observed association.
+
+```{r exercise6, error = T}
+# Replace this text with your code
+
+```
+
+*Answer:* Replace this text with your answer. 
+
+
+
+> **7.** Create a two-way frequency table for each of the variable pairs in Exercises 5 and 6. First, create a table of `carat` and `cut`. Use `addmargins()` to display the row and column totals with the table. Using the table, compute the requested probabilities. Then, create a table of `carat` and `clarity`. Use `addmargins()` to display the row and column totals with the table. Using the table, compute the requested probabilities. Finally, in 1 - 2 sentences, explain how these probabilities support your written answers to Exercises 5 and 6. 
+
+```{r exercise7_table_carat_cut}
+# Replace this comment with your code
+
+```
+
+```{r exercise7_calculator1}
+# Feel free to use this code chunk as a calculator for the probabilities below!
+
+```
+
+*P(Small | Fair) =* Replace this text with your answer.
+
+*P(Small | Ideal) =* Replace this text with your answer.
+
+
+```{r exercise7_table_carat_clarity}
+# Replace this comment with your code
+
+```
+
+```{r exercise7_calculator2}
+# Feel free to use this code chunk as a calculator for the probabilities below!
+
+```
+
+*P(Small | Cloudy) =* Replace this text with your answer.
+
+*P(Small | Pure) =* Replace this text with your answer.
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **8.** First, create a set of side-by-side boxplots to analyze the association of `price` and `carat`. Be sure to appropriately update the plot title and axis labels. Then, use the `aggregate()` function to compute the *median* price by carat size. Provide a 1 - 2 sentence description of the observed association.
+
+```{r exercise8_boxplot}
+# Replace this comment with your code
+
+```
+
+```{r exercise8_medians}
+# Replace this comment with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **9.** Visualize the three variables of `price`, `carat`, and `cut` together using side-by-side boxplots *with color*. Create two plots. In the first plot, set `x` equal to `cut` and `fill` equal to `carat`. In the second plot, set `x` equal to `carat` and `fill` equal to `cut`. Be sure to appropriately update the plot title and axis labels. Using both plots, write a 2 - 3 sentence conclusion regarding the relationship of the three variables.
+
+```{r exercise9a}
+# Replace this comment with your code
+
+```
+
+```{r exercise9b}
+# Replace this comment with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+> **10.** Visualize the three variables of `price`, `carat`, and `clarity` together using side-by-side boxplots *with color*. Create two plots. In the first plot, set `x` equal to `clarity` and `fill` equal to `carat`. In the second plot, set `x` equal to `carat` and `fill` equal to `clarity`. Be sure to appropriately update the plot title and axis labels. Using both plots, write a 2 - 3 sentence conclusion regarding the relationship of the three variables.
+
+```{r exercise10a}
+# Replace this comment with your code
+
+```
+
+```{r exercise10b}
+# Replace this comment with your code
+
+```
+
+*Answer:* Replace this text with your answer.
+
+
+
+***
+
+
+### Submission Instructions
+
+Once you have finished, follow the instructions below to submit your work.
+
+1. At the top of the document, change the `author` field to your name (in quotes!). **Do not change any of the other fields (title, date, output) at the top of the document.**
+
+2. Click the Knit button to create an HTML file of your work. If you get an error that says "Duplicate chunk label", go back and check your code chunk names - each one must have a unique name!
+
+3. In the Files pane (bottom right window), check the box next to `mwrite1_supplement.html`.
+
+4. In the Files pane, click on the gear icon (More) and select "Export..."  
+
+5. Do not change the file name (`mwrite1_supplement.html`). Click Download and save the file to your computer. 
+
+6. On the Stats 250 Canvas site, navigate to the MWrite #1 Supplemental Work assignment. 
+
+7. Upload your saved `mwrite1_supplement.html` file. 
+
+8. Click "Submit Assignment". Congratulations, you are done with the analysis portion of MWrite #1! Note: there will be no file submission for the Lab 4 assignment on Canvas.
+
+

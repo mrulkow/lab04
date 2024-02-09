@@ -1,0 +1,89 @@
+---
+title: 'Stats 250: Lab 4 Resources'
+author: "Instructional Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Learning Objectives
+1. Create a percent stacked bar chart
+2. Review functions covered to date
+
+
+***
+
+
+## Coding Examples
+
+With your first MWrite assignment underway, today's lab tutorial will be on the shorter side. We will cover one twist to a function we've already used several times. 
+
+Before we begin, please load in the example data set that we'll be using today:
+
+```{r read_data}
+load("example_data.rda")
+```
+
+And load in the required packages:
+
+```{r load_package}
+library(ggplot2)
+```
+
+
+### Percent Stacked Bar Charts
+
+We have already seen how to create both stacked and grouped bar charts. These help us determine if there is an association between two categorical variables. Suppose we wish to examine the association between `group` and `effect` for our example data set. The code to create the stacked bar chart would look like this:
+
+```{r stacked_bar_chart_example_do_not_use_for_MWrite}
+ggplot(data = example_data, aes(x = group, fill = effect)) +
+  
+  geom_bar() + 
+  
+  labs(title = "Stacked Bar Chart of Effect by Group",
+       subtitle = "by Your Name",
+       x = "Group",
+       y = "Frequency") 
+```
+
+In the above example, it is hard to determine whether an association exists between the two variables because Group 3 has far fewer observations than the other two groups. Another way to visualize the data is by using a **percent stacked bar chart**. 
+
+A percent stacked bar chart scales the y-axis to be proportions/percents, instead of counts/frequencies - making it easier to compare across groups when the sizes are different. To create a percent stacked bar chart, you simply need to add `position = "fill"` to the `geom_bar()` component of the code. Your code would now look like this:
+
+```{r percent_stacked_bar_chart_example}
+ggplot(data = example_data, aes(x = group, fill = effect)) +
+  
+  geom_bar(position = "fill") + 
+  
+  labs(title = "Percent Stacked Bar Chart of Effect by Group",
+       subtitle = "by Your Name",
+       x = "Group",
+       y = "Proportion") 
+```
+
+**Important Note:** we must update the y-axis label from "Frequency" to "Proportion"! (We also changed the name of the plot to *Percent* Stacked Bar Chart.)
+
+We can now clearly see that there is no association between the two variables because the distribution (or pattern) of effect is the same for all three groups. The proportion of low, medium, and high are the same given the three groups. 
+
+The `diamonds` data set that you'll be using in your MWrite analysis has some discrepancies in sample sizes - so we ask that you use this percent stacked bar chart in your supplemental work. 
+
+
+
+### Function Reference Document
+
+We have covered quite a few functions already this semester! Many of these will come in handy as you complete the supplement for your first MWrite assignment. Instead of toggling between the various lab documents, we have created a review document for you on Canvas that you can reference throughout the semester! We highly recommend that you head to Canvas > Files > Lab Material and download this html file. 
+
+
+
+That's all we have for Lab 4! What questions do you have?
+
+Now, click on the file titled `mwrite1_supplement.Rmd` in the bottom right window to open up the assignment for today.
